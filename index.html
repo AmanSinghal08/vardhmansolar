@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vardhaman Solar System | Sustainable Energy Solutions</title>
+    <title>Vardhaman Solar Panel | Sustainable Energy Solutions</title>
     
+    <!-- Tailwind CSS for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700;800;900&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -20,12 +23,14 @@
                             green: '#2ecc71',
                             darkGreen: '#27ae60',
                             blue: '#2c3e50',
-                            light: '#ecf0f1'
+                            light: '#ecf0f1',
+                            orange: '#f59e0b'
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        heading: ['Montserrat', 'sans-serif']
+                        heading: ['Montserrat', 'sans-serif'],
+                        hindi: ['Tiro Devanagari Hindi', 'serif']
                     }
                 }
             }
@@ -38,22 +43,16 @@
         }
         
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: scroll; /* Changed from fixed for better mobile performance */
+            background-attachment: scroll;
         }
         
         @media (min-width: 768px) {
             .hero-bg {
                 background-attachment: fixed;
             }
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* Animation classes */
@@ -67,33 +66,52 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Hindi Font Adjustment */
+        body.lang-hi .font-heading, 
+        body.lang-hi .font-sans {
+            font-family: 'Tiro Devanagari Hindi', serif;
+        }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50 antialiased overflow-x-hidden">
+<body class="font-sans text-gray-800 bg-gray-50 antialiased overflow-x-hidden lang-en">
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
                     <i class="fa-solid fa-solar-panel text-brand-green text-3xl"></i>
                     <div>
-                        <h1 class="font-heading font-bold text-xl leading-none text-gray-900">VARDHAMAN</h1>
-                        <span class="text-xs text-gray-500 tracking-wider">SOLAR SYSTEM</span>
+                        <h1 class="font-heading font-bold text-xl leading-none text-gray-900" data-i18n="logo-title">VARDHAMAN</h1>
+                        <span class="text-xs text-gray-500 tracking-wider" data-i18n="logo-subtitle">SOLAR ENERGY</span>
                     </div>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-brand-green font-medium transition">Home</a>
-                    <a href="#partners" class="text-gray-700 hover:text-brand-green font-medium transition">Brands</a>
-                    <a href="#benefits" class="text-gray-700 hover:text-brand-green font-medium transition">Benefits</a>
-                    <a href="#projects" class="text-gray-700 hover:text-brand-green font-medium transition">Projects</a>
-                    <a href="#finance" class="text-gray-700 hover:text-brand-green font-medium transition">Finance & EMI</a>
-                    <a href="#contact" class="bg-brand-green hover:bg-brand-darkGreen text-white px-5 py-2.5 rounded-full font-medium transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:scale-95">
-                        Get Quote
-                    </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-brand-green font-medium transition" data-i18n="nav-home">Home</a>
+                    <a href="#pm-scheme" class="text-brand-orange font-bold hover:text-orange-600 transition" data-i18n="nav-pm">PM Surya Ghar</a>
+                    <a href="#partners" class="text-gray-700 hover:text-brand-green font-medium transition" data-i18n="nav-brands">Brands</a>
+                    <a href="#projects" class="text-gray-700 hover:text-brand-green font-medium transition" data-i18n="nav-projects">Projects</a>
+                    <a href="#finance" class="text-gray-700 hover:text-brand-green font-medium transition" data-i18n="nav-finance">Finance</a>
+                    <a href="#contact" class="text-gray-700 hover:text-brand-green font-medium transition" data-i18n="nav-contact">Contact Us</a>
+                    
+                    <!-- Language Toggle Desktop -->
+                    <button onclick="toggleLanguage()" class="flex items-center gap-2 px-4 py-1.5 border border-gray-300 rounded-full hover:bg-gray-50 transition text-sm font-semibold">
+                        <i class="fa-solid fa-language text-brand-green"></i>
+                        <span id="lang-text-desktop">हिंदी</span>
+                    </button>
                 </div>
 
-                <div class="md:hidden flex items-center">
+                <!-- Mobile Controls -->
+                <div class="md:hidden flex items-center gap-4">
+                     <!-- Language Toggle Mobile -->
+                     <button onclick="toggleLanguage()" class="flex items-center gap-1 px-3 py-1 border border-gray-300 rounded-full bg-white text-xs font-bold">
+                        EN / हिंदी
+                    </button>
+
                     <button id="mobile-menu-btn" class="text-gray-700 hover:text-brand-green focus:outline-none p-2">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
@@ -101,36 +119,38 @@
             </div>
         </div>
 
+        <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 border-b border-gray-50">Home</a>
-                <a href="#partners" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 border-b border-gray-50">Brands</a>
-                <a href="#benefits" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 border-b border-gray-50">Benefits</a>
-                <a href="#projects" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 border-b border-gray-50">Projects</a>
-                <a href="#finance" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 border-b border-gray-50">EMI & Loans</a>
-                <a href="#contact" class="block mt-4 px-3 py-3 rounded-lg text-center font-bold text-white bg-brand-green hover:bg-brand-darkGreen">Contact Us</a>
+                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 border-b border-gray-50" data-i18n="nav-home">Home</a>
+                <a href="#pm-scheme" class="block px-3 py-3 rounded-md text-base font-bold text-orange-600 hover:bg-orange-50 border-b border-gray-50" data-i18n="nav-pm">PM Surya Ghar</a>
+                <a href="#partners" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 border-b border-gray-50" data-i18n="nav-brands">Brands</a>
+                <a href="#projects" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 border-b border-gray-50" data-i18n="nav-projects">Projects</a>
+                <a href="#finance" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-gray-50 border-b border-gray-50" data-i18n="nav-finance">Finance</a>
+                <a href="#contact" class="block mt-4 px-3 py-3 rounded-lg text-center font-bold text-white bg-brand-green hover:bg-brand-darkGreen" data-i18n="nav-contact">Contact Us</a>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative pt-20">
         <div class="absolute inset-0 bg-black/40"></div>
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto fade-in-up">
-            <span class="inline-block py-1 px-3 rounded-full bg-brand-green/20 border border-brand-green text-brand-green text-xs md:text-sm font-bold mb-4 backdrop-blur-sm">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-green/20 border border-brand-green text-brand-green text-xs md:text-sm font-bold mb-4 backdrop-blur-sm" data-i18n="hero-badge">
                 GOVERNMENT APPROVED VENDOR
             </span>
-            <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight" data-i18n="hero-title">
                 Powering India's Future <br> with <span class="text-brand-green">Clean Energy</span>
             </h1>
-            <p class="text-gray-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light px-2">
-                Secure your energy independence with Vardhaman Solar System. Premium installations, 25-year warranty, and easy financing options.
+            <p class="text-gray-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light px-2" data-i18n="hero-desc">
+                Get up to <span class="font-bold text-white">₹78,000 Subsidy</span> directly from the Govt of India. Secure your energy independence today.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 px-4 sm:px-0">
-                <a href="#contact" class="bg-brand-green hover:bg-brand-darkGreen text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-lg hover:shadow-brand-green/50 transform hover:-translate-y-1 active:scale-95 w-full sm:w-auto">
-                    Book Free Consultation
+                <a href="#contact" class="bg-brand-green hover:bg-brand-darkGreen text-white text-lg px-8 py-4 rounded-full font-bold transition shadow-lg hover:shadow-brand-green/50 transform hover:-translate-y-1 active:scale-95 w-full sm:w-auto" data-i18n="hero-btn-contact">
+                    Contact Us Now
                 </a>
-                <a href="#finance" class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold transition shadow-lg w-full sm:w-auto active:scale-95">
-                    Check Loan Options
+                <a href="#pm-scheme" class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold transition shadow-lg w-full sm:w-auto active:scale-95" data-i18n="hero-btn-subsidy">
+                    View Subsidy Details
                 </a>
             </div>
         </div>
@@ -140,75 +160,132 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
     <section class="bg-brand-blue py-10 border-b border-gray-700">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
             <div class="fade-in-up">
                 <div class="text-3xl md:text-4xl font-bold text-brand-green mb-1">500+</div>
-                <div class="text-sm opacity-80">Projects Completed</div>
+                <div class="text-sm opacity-80" data-i18n="stat-projects">Projects Completed</div>
             </div>
             <div class="fade-in-up" style="transition-delay: 100ms;">
                 <div class="text-3xl md:text-4xl font-bold text-brand-green mb-1">5MW+</div>
-                <div class="text-sm opacity-80">Power Generated</div>
+                <div class="text-sm opacity-80" data-i18n="stat-power">Power Generated</div>
             </div>
             <div class="fade-in-up" style="transition-delay: 200ms;">
                 <div class="text-3xl md:text-4xl font-bold text-brand-green mb-1">100%</div>
-                <div class="text-sm opacity-80">Govt. Compliant</div>
+                <div class="text-sm opacity-80" data-i18n="stat-govt">Govt. Compliant</div>
             </div>
             <div class="fade-in-up" style="transition-delay: 300ms;">
                 <div class="text-3xl md:text-4xl font-bold text-brand-green mb-1">25 Yrs</div>
-                <div class="text-sm opacity-80">Warranty Support</div>
+                <div class="text-sm opacity-80" data-i18n="stat-warranty">Warranty Support</div>
             </div>
         </div>
     </section>
 
+    <!-- PM Surya Ghar Yojana Section -->
+    <section id="pm-scheme" class="py-20 bg-orange-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-orange-100">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <div class="inline-flex items-center gap-2 text-orange-600 font-bold mb-4 bg-orange-100 w-fit px-4 py-1 rounded-full text-sm">
+                            <i class="fa-solid fa-sun"></i> <span data-i18n="pm-badge">GOVT OF INDIA INITIATIVE</span>
+                        </div>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-i18n="pm-title">
+                            PM Surya Ghar: <br>
+                            <span class="text-orange-600">Muft Bijli Yojana</span>
+                        </h2>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <i class="fa-solid fa-indian-rupee-sign text-2xl text-orange-600 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-900" data-i18n="pm-sub-title-1">Direct Subsidy</h4>
+                                    <p class="text-gray-700" data-i18n="pm-sub-desc-1">Get subsidy up to <span class="font-bold text-orange-700">₹78,000</span> directly in your bank account.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <i class="fa-solid fa-bolt text-2xl text-orange-600 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-900" data-i18n="pm-sub-title-2">Free Electricity</h4>
+                                    <p class="text-gray-700" data-i18n="pm-sub-desc-2">Scheme aims to provide free electricity up to 300 units every month.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://pmsuryaghar.gov.in/" target="_blank" class="flex-1 bg-orange-600 text-white text-center py-3 px-6 rounded-lg font-bold hover:bg-orange-700 transition shadow-md">
+                                <span data-i18n="pm-btn-web">Visit Official Website</span> <i class="fa-solid fa-external-link-alt ml-2"></i>
+                            </a>
+                            <a href="#contact" class="flex-1 bg-white text-orange-600 border-2 border-orange-600 text-center py-3 px-6 rounded-lg font-bold hover:bg-orange-50 transition" data-i18n="pm-btn-apply">
+                                Apply via Vardhaman
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative bg-gradient-to-br from-orange-100 to-orange-200 min-h-[400px]">
+                        <!-- PM Modi Photo -->
+                        <img src="https://gangotrisolar.com/wp-content/uploads/2023/09/PM-Surya-Ghar-Muft-Bijli-Yojana-1024x603-1.webp" 
+                             alt="PM Narendra Modi" 
+                             class="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-[90%] w-auto object-contain drop-shadow-2xl z-10">
+                        <!-- Decorative sun graphic -->
+                        <div class="absolute top-10 right-10 text-orange-300 opacity-50">
+                            <i class="fa-solid fa-sun text-9xl animate-spin-slow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners / Brands Section -->
     <section id="partners" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-up">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Trusted Partners</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">We use only top-tier, Tier-1 solar modules from the world's most trusted manufacturers.</p>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="brands-title">Our Trusted Partners</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="brands-desc">We use only top-tier, Tier-1 solar modules from the world's most trusted manufacturers.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Adani -->
                 <div class="group border border-gray-200 rounded-xl p-8 hover:shadow-2xl transition duration-300 flex flex-col items-center justify-center text-center fade-in-up">
                     <div class="h-24 w-24 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
                         <i class="fa-solid fa-building text-4xl text-blue-800"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">Adani Solar</h3>
-                    <p class="text-gray-500 text-sm">Top Performer in PVEL Reliability Scorecard. High efficiency mono-perc modules.</p>
+                    <p class="text-gray-500 text-sm" data-i18n="brand-adani-desc">Top Performer in PVEL Reliability Scorecard. High efficiency mono-perc modules.</p>
                 </div>
-
+                <!-- Tata Power -->
                 <div class="group border border-gray-200 rounded-xl p-8 hover:shadow-2xl transition duration-300 flex flex-col items-center justify-center text-center fade-in-up" style="transition-delay: 100ms;">
                     <div class="h-24 w-24 bg-red-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
                         <i class="fa-solid fa-bolt text-4xl text-red-600"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">Tata Power</h3>
-                    <p class="text-gray-500 text-sm">India's most trusted brand. Robust panels designed for Indian weather conditions.</p>
+                    <p class="text-gray-500 text-sm" data-i18n="brand-tata-desc">India's most trusted brand. Robust panels designed for Indian weather conditions.</p>
                 </div>
-
+                <!-- Waaree -->
                 <div class="group border border-gray-200 rounded-xl p-8 hover:shadow-2xl transition duration-300 flex flex-col items-center justify-center text-center fade-in-up" style="transition-delay: 200ms;">
                     <div class="h-24 w-24 bg-yellow-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition">
                         <i class="fa-solid fa-sun text-4xl text-yellow-600"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-2">Waaree Energies</h3>
-                    <p class="text-gray-500 text-sm">India's largest solar panel manufacturer. Cutting-edge bifacial technology.</p>
+                    <p class="text-gray-500 text-sm" data-i18n="brand-waaree-desc">India's largest solar panel manufacturer. Cutting-edge bifacial technology.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Why Choose Us / Benefits -->
     <section id="benefits" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="fade-in-up">
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Switch to Vardhaman Solar System?</h2>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-i18n="benefits-title">Why Switch to Vardhaman Solar?</h2>
                     <div class="space-y-6">
                         <div class="flex items-start">
                             <div class="flex-shrink-0 mt-1">
                                 <i class="fa-solid fa-certificate text-brand-green text-xl"></i>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-xl font-bold text-gray-900">25 Years Warranty</h4>
-                                <p class="text-gray-600 mt-1">Peace of mind with a 25-year performance warranty on all solar panels.</p>
+                                <h4 class="text-xl font-bold text-gray-900" data-i18n="benefit-1-title">25 Years Warranty</h4>
+                                <p class="text-gray-600 mt-1" data-i18n="benefit-1-desc">Peace of mind with a 25-year performance warranty on all solar panels.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -216,8 +293,8 @@
                                 <i class="fa-solid fa-building-columns text-brand-green text-xl"></i>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-xl font-bold text-gray-900">Government Approved</h4>
-                                <p class="text-gray-600 mt-1">We are a registered vendor for PM Surya Ghar and state subsidy schemes.</p>
+                                <h4 class="text-xl font-bold text-gray-900" data-i18n="benefit-2-title">Government Approved</h4>
+                                <p class="text-gray-600 mt-1" data-i18n="benefit-2-desc">We are a registered vendor for PM Surya Ghar and state subsidy schemes.</p>
                             </div>
                         </div>
                     </div>
@@ -229,244 +306,178 @@
         </div>
     </section>
 
+    <!-- Our Works / Projects Section -->
     <section id="projects" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-up">
-                <span class="text-brand-green font-bold tracking-wider uppercase">Our Portfolio</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Recent Installations</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">From small homes to large industrial complexes, we've powered them all.</p>
+                <span class="text-brand-green font-bold tracking-wider uppercase" data-i18n="projects-badge">Our Portfolio</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4" data-i18n="projects-title">Recent Installations</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="projects-desc">From small homes to large industrial complexes, we've powered them all.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
                 <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer fade-in-up">
                     <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Residential Solar" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-                        <h3 class="text-white font-bold text-xl">Vadodara Residence</h3>
-                        <p class="text-gray-300 text-sm">5kW Rooftop System</p>
+                        <h3 class="text-white font-bold text-xl" data-i18n="proj-1-title">Vadodara Residence</h3>
+                        <p class="text-gray-300 text-sm" data-i18n="proj-1-desc">5kW Rooftop System</p>
                     </div>
                 </div>
+                <!-- Project 2 -->
                 <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer fade-in-up" style="transition-delay: 100ms;">
                     <img src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial Solar" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-                        <h3 class="text-white font-bold text-xl">Textile Mill, Surat</h3>
-                        <p class="text-gray-300 text-sm">100kW Industrial Plant</p>
+                        <h3 class="text-white font-bold text-xl" data-i18n="proj-2-title">Textile Mill, Surat</h3>
+                        <p class="text-gray-300 text-sm" data-i18n="proj-2-desc">100kW Industrial Plant</p>
                     </div>
                 </div>
+                <!-- Project 3 -->
                 <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer fade-in-up" style="transition-delay: 200ms;">
                     <img src="https://images.unsplash.com/photo-1548613053-220e3381a1a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Housing Society" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-                        <h3 class="text-white font-bold text-xl">Green Valley Apartments</h3>
-                        <p class="text-gray-300 text-sm">25kW Common Area Backup</p>
+                        <h3 class="text-white font-bold text-xl" data-i18n="proj-3-title">Green Valley Apartments</h3>
+                        <p class="text-gray-300 text-sm" data-i18n="proj-3-desc">25kW Common Area Backup</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-gray-50 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
-                <div class="w-24 h-1 bg-brand-green mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition fade-in-up">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">"The installation process was super smooth. The team handled all the subsidy paperwork with the government. My electricity bill has dropped from ₹4000 to almost zero!"</p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-600">RP</div>
-                        <div class="ml-3">
-                            <h4 class="font-bold text-gray-900">Rajesh Patel</h4>
-                            <p class="text-xs text-gray-500">Homeowner, Ahmedabad</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition fade-in-up" style="transition-delay: 100ms;">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <p class="text-gray-600 mb-6 italic">"Vardhaman's EMI option made it very easy for us to afford the solar system. The 25-year warranty gives us peace of mind. Highly recommended!"</p>
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-600">AS</div>
-                        <div class="ml-3">
-                            <h4 class="font-bold text-gray-900">Amit Shah</h4>
-                            <p class="text-xs text-gray-500">Business Owner</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Finance & EMI Section -->
     <section id="finance" class="py-20 bg-brand-blue relative overflow-hidden">
+        <!-- Decorative circles -->
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-brand-green opacity-10"></div>
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-white opacity-5"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12 fade-in-up">
-                <span class="text-brand-green font-bold tracking-wider uppercase">Financial Freedom</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-2 mb-4">Solar Made Affordable</h2>
-                <p class="text-gray-300 max-w-2xl mx-auto">Don't let upfront costs stop you. We offer flexible financing tailored to your needs.</p>
+                <span class="text-brand-green font-bold tracking-wider uppercase" data-i18n="finance-badge">Financial Freedom</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-2 mb-4" data-i18n="finance-title">Solar Made Affordable</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto" data-i18n="finance-desc">Don't let upfront costs stop you. We offer flexible financing tailored to your needs.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- EMI Card -->
                 <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-white hover:bg-white/20 transition cursor-default fade-in-up">
                     <i class="fa-solid fa-percent text-4xl text-brand-green mb-6"></i>
-                    <h3 class="text-2xl font-bold mb-3">Easy EMI Options</h3>
-                    <p class="text-gray-300 mb-6">Convert your solar investment into easy monthly installments starting as low as ₹2,500/month.</p>
+                    <h3 class="text-2xl font-bold mb-3" data-i18n="card-emi-title">Ultra Low Interest</h3>
+                    <p class="text-gray-300 mb-6" data-i18n="card-emi-desc">Get solar loans with interest rates <strong class="text-brand-green">less than 6%</strong> per annum.</p>
                     <ul class="text-sm space-y-2 text-gray-300">
-                        <li><i class="fa-solid fa-check text-brand-green mr-2"></i> No hidden charges</li>
-                        <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Flexible tenure (12-60 months)</li>
+                        <li><i class="fa-solid fa-check text-brand-green mr-2"></i> <span data-i18n="card-emi-pt1">No hidden charges</span></li>
+                        <li><i class="fa-solid fa-check text-brand-green mr-2"></i> <span data-i18n="card-emi-pt2">Flexible tenure (12-60 months)</span></li>
                     </ul>
                 </div>
 
+                <!-- Loan Card -->
                 <div class="bg-white rounded-2xl p-8 text-gray-900 shadow-2xl transform md:-translate-y-4 fade-in-up" style="transition-delay: 100ms;">
-                    <div class="absolute top-0 right-0 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</div>
+                    <div class="absolute top-0 right-0 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg" data-i18n="card-loan-badge">MOST POPULAR</div>
                     <i class="fa-solid fa-hand-holding-dollar text-4xl text-brand-green mb-6"></i>
-                    <h3 class="text-2xl font-bold mb-3">Easy Green Loans</h3>
-                    <p class="text-gray-600 mb-6">Partnered with leading national banks for hassle-free solar loans with minimal documentation.</p>
-                    <button onclick="document.getElementById('contact').scrollIntoView()" class="w-full bg-brand-blue text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition active:scale-95">
-                        Check Eligibility
+                    <h3 class="text-2xl font-bold mb-3" data-i18n="card-loan-title">Easy Green Loans</h3>
+                    <p class="text-gray-600 mb-6" data-i18n="card-loan-desc">Partnered with leading national banks for hassle-free solar loans with minimal documentation.</p>
+                    <button onclick="document.getElementById('contact').scrollIntoView()" class="w-full bg-brand-blue text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition active:scale-95" data-i18n="card-loan-btn">
+                        Apply Now
                     </button>
                 </div>
 
+                <!-- ROI Card -->
                 <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 text-white hover:bg-white/20 transition cursor-default fade-in-up" style="transition-delay: 200ms;">
                     <i class="fa-solid fa-chart-line text-4xl text-brand-green mb-6"></i>
-                    <h3 class="text-2xl font-bold mb-3">ROI Calculator</h3>
-                    <p class="text-gray-300 mb-6">Recover your investment in just 3-4 years. Enjoy free electricity for the remaining 20+ years.</p>
+                    <h3 class="text-2xl font-bold mb-3" data-i18n="card-roi-title">ROI Calculator</h3>
+                    <p class="text-gray-300 mb-6" data-i18n="card-roi-desc">Recover your investment in just 3-4 years. Enjoy free electricity for the remaining 20+ years.</p>
                     <ul class="text-sm space-y-2 text-gray-300">
-                        <li><i class="fa-solid fa-check text-brand-green mr-2"></i> 80% Reduction in bills</li>
-                        <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Net Metering support</li>
+                        <li><i class="fa-solid fa-check text-brand-green mr-2"></i> <span data-i18n="card-roi-pt1">80% Reduction in bills</span></li>
+                        <li><i class="fa-solid fa-check text-brand-green mr-2"></i> <span data-i18n="card-roi-pt2">Net Metering support</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div class="fade-in-up">
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get A Free Quote</h2>
-                    <p class="text-gray-600 mb-8">Fill out the form below and our solar expert will contact you within 24 hours with a customized plan.</p>
-                    
-                    <form id="contactForm" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition" placeholder="John Doe">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                                <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition" placeholder="+91 98765 43210">
-                            </div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="contact-title">Contact Us</h2>
+                <p class="text-gray-600" data-i18n="contact-desc">We are ready to assist you. Call or email us to get your free solar quotation today.</p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100 fade-in-up">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Address -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-brand-green/10 flex items-center justify-center mb-4 text-brand-green text-2xl">
+                            <i class="fa-solid fa-location-dot"></i>
                         </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Monthly Electricity Bill (Avg)</label>
-                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition">
-                                <option>Less than ₹1,500</option>
-                                <option>₹1,500 - ₹3,000</option>
-                                <option>₹3,000 - ₹5,000</option>
-                                <option>Above ₹5,000</option>
-                            </select>
-                        </div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-2" data-i18n="addr-title">Head Office</h4>
+                        <p class="text-gray-600" data-i18n="addr-desc">123, Green Energy Park,<br>Industrial Area, Ahmedabad,<br>Gujarat - 380001</p>
+                    </div>
 
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Roof Type</label>
-                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition">
-                                <option>Concrete Flat Roof</option>
-                                <option>Tin/Metal Shed</option>
-                                <option>Tiled Roof</option>
-                                <option>Empty Land</option>
-                            </select>
+                    <!-- Phone -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-brand-green/10 flex items-center justify-center mb-4 text-brand-green text-2xl">
+                            <i class="fa-solid fa-phone"></i>
                         </div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-2" data-i18n="phone-title">Call Us</h4>
+                        <p class="text-gray-600 mb-4">+91 98765 43210<br><span class="text-sm text-gray-400" data-i18n="phone-time">Mon-Sat: 9am - 7pm</span></p>
+                        <a href="tel:+919876543210" class="text-brand-green font-bold hover:underline" data-i18n="phone-btn">Click to Call</a>
+                    </div>
 
-                        <button type="submit" class="w-full bg-brand-green text-white font-bold py-4 rounded-lg shadow-lg hover:bg-brand-darkGreen hover:shadow-xl transition transform hover:-translate-y-1 active:scale-95">
-                            Request Callback
-                        </button>
-                    </form>
+                    <!-- Email -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-brand-green/10 flex items-center justify-center mb-4 text-brand-green text-2xl">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-2" data-i18n="email-title">Email Us</h4>
+                        <p class="text-gray-600 mb-4">sales@vardhamansolar.com<br>support@vardhamansolar.com</p>
+                        <a href="mailto:sales@vardhamansolar.com" class="text-brand-green font-bold hover:underline" data-i18n="email-btn">Send Email</a>
+                    </div>
                 </div>
 
-                <div class="flex flex-col justify-center space-y-8 fade-in-up">
-                    <div class="bg-gray-50 p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 text-brand-green">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="font-bold text-gray-900">Head Office</p>
-                                    <p class="text-gray-600">123, Green Energy Park, Industrial Area,<br>Ahmedabad, Gujarat - 380001</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 text-brand-green">
-                                    <i class="fa-solid fa-phone"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="font-bold text-gray-900">Call Us</p>
-                                    <p class="text-gray-600">+91 98765 43210</p>
-                                    <p class="text-gray-500 text-sm">Mon-Sat: 9:00 AM - 7:00 PM</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 text-brand-green">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="font-bold text-gray-900">Email</p>
-                                    <p class="text-gray-600">sales@vardhamansolar.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="mt-12 text-center border-t border-gray-200 pt-8">
+                    <a href="https://wa.me/919876543210" class="inline-flex items-center bg-green-500 text-white px-8 py-4 rounded-full font-bold hover:bg-green-600 transition shadow-lg hover:shadow-green-200">
+                        <i class="fa-brands fa-whatsapp text-2xl mr-3"></i> <span data-i18n="whatsapp-btn">Chat on WhatsApp</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 border-b border-gray-800 pb-12">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center gap-2 mb-4">
                         <i class="fa-solid fa-solar-panel text-brand-green text-2xl"></i>
-                        <h2 class="font-heading font-bold text-xl">VARDHAMAN</h2>
+                        <h2 class="font-heading font-bold text-xl" data-i18n="logo-title">VARDHAMAN</h2>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="footer-about">
                         Leading the solar revolution in India. We provide turnkey solar solutions with premium components and lifelong support.
                     </p>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="footer-quick">Quick Links</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#home" class="hover:text-brand-green transition">Home</a></li>
-                        <li><a href="#partners" class="hover:text-brand-green transition">Our Partners</a></li>
-                        <li><a href="#benefits" class="hover:text-brand-green transition">Benefits</a></li>
-                        <li><a href="#finance" class="hover:text-brand-green transition">EMI Calculator</a></li>
+                        <li><a href="#home" class="hover:text-brand-green transition" data-i18n="nav-home">Home</a></li>
+                        <li><a href="#pm-scheme" class="hover:text-brand-green transition" data-i18n="nav-pm">PM Surya Ghar</a></li>
+                        <li><a href="#partners" class="hover:text-brand-green transition" data-i18n="nav-brands">Our Partners</a></li>
+                        <li><a href="#benefits" class="hover:text-brand-green transition" data-i18n="nav-finance">Benefits</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="footer-services">Services</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-brand-green transition">Residential Solar</a></li>
-                        <li><a href="#" class="hover:text-brand-green transition">Commercial Industrial</a></li>
-                        <li><a href="#" class="hover:text-brand-green transition">Solar Water Pumps</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition" data-i18n="footer-serv-1">Residential Solar</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition" data-i18n="footer-serv-2">Commercial Industrial</a></li>
+                        <li><a href="#" class="hover:text-brand-green transition" data-i18n="footer-serv-3">Solar Water Pumps</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Connect</h4>
+                    <h4 class="text-lg font-bold mb-4" data-i18n="footer-connect">Connect</h4>
                     <div class="flex space-x-4 mb-4">
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-green transition">
                             <i class="fa-brands fa-facebook-f"></i>
@@ -478,21 +489,244 @@
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                     </div>
-                    <p class="text-gray-500 text-sm">Approved by MNRE (Govt of India)</p>
+                    <p class="text-gray-500 text-sm" data-i18n="footer-approved">Approved by MNRE (Govt of India)</p>
                 </div>
             </div>
 
             <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>&copy; 2024 Vardhaman Solar System. All rights reserved.</p>
+                <p data-i18n="footer-copy">&copy; 2024 Vardhaman Solar Panel. All rights reserved.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white">Privacy Policy</a>
-                    <a href="#" class="hover:text-white">Terms of Service</a>
+                    <a href="#" class="hover:text-white" data-i18n="footer-privacy">Privacy Policy</a>
+                    <a href="#" class="hover:text-white" data-i18n="footer-terms">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript for Interactivity & Translation -->
     <script>
+        // --- TRANSLATION DATA ---
+        const translations = {
+            en: {
+                "logo-title": "VARDHAMAN",
+                "logo-subtitle": "SOLAR ENERGY",
+                "nav-home": "Home",
+                "nav-pm": "PM Surya Ghar",
+                "nav-brands": "Brands",
+                "nav-projects": "Projects",
+                "nav-finance": "Finance",
+                "nav-contact": "Contact Us",
+                
+                "hero-badge": "GOVERNMENT APPROVED VENDOR",
+                "hero-title": "Powering India's Future <br> with <span class=\"text-brand-green\">Clean Energy</span>",
+                "hero-desc": "Get up to <span class=\"font-bold text-white\">₹78,000 Subsidy</span> directly from the Govt of India. Secure your energy independence today.",
+                "hero-btn-contact": "Contact Us Now",
+                "hero-btn-subsidy": "View Subsidy Details",
+
+                "stat-projects": "Projects Completed",
+                "stat-power": "Power Generated",
+                "stat-govt": "Govt. Compliant",
+                "stat-warranty": "Warranty Support",
+
+                "pm-badge": "GOVT OF INDIA INITIATIVE",
+                "pm-title": "PM Surya Ghar: <br> <span class=\"text-orange-600\">Muft Bijli Yojana</span>",
+                "pm-sub-title-1": "Direct Subsidy",
+                "pm-sub-desc-1": "Get subsidy up to <span class=\"font-bold text-orange-700\">₹78,000</span> directly in your bank account.",
+                "pm-sub-title-2": "Free Electricity",
+                "pm-sub-desc-2": "Scheme aims to provide free electricity up to 300 units every month.",
+                "pm-btn-web": "Visit Official Website",
+                "pm-btn-apply": "Apply via Vardhaman",
+
+                "brands-title": "Our Trusted Partners",
+                "brands-desc": "We use only top-tier, Tier-1 solar modules from the world's most trusted manufacturers.",
+                "brand-adani-desc": "Top Performer in PVEL Reliability Scorecard. High efficiency mono-perc modules.",
+                "brand-tata-desc": "India's most trusted brand. Robust panels designed for Indian weather conditions.",
+                "brand-waaree-desc": "India's largest solar panel manufacturer. Cutting-edge bifacial technology.",
+
+                "benefits-title": "Why Switch to Vardhaman Solar?",
+                "benefit-1-title": "25 Years Warranty",
+                "benefit-1-desc": "Peace of mind with a 25-year performance warranty on all solar panels.",
+                "benefit-2-title": "Government Approved",
+                "benefit-2-desc": "We are a registered vendor for PM Surya Ghar and state subsidy schemes.",
+
+                "projects-badge": "Our Portfolio",
+                "projects-title": "Recent Installations",
+                "projects-desc": "From small homes to large industrial complexes, we've powered them all.",
+                "proj-1-title": "Vadodara Residence",
+                "proj-1-desc": "5kW Rooftop System",
+                "proj-2-title": "Textile Mill, Surat",
+                "proj-2-desc": "100kW Industrial Plant",
+                "proj-3-title": "Green Valley Apartments",
+                "proj-3-desc": "25kW Common Area Backup",
+
+                "finance-badge": "Financial Freedom",
+                "finance-title": "Solar Made Affordable",
+                "finance-desc": "Don't let upfront costs stop you. We offer flexible financing tailored to your needs.",
+                "card-emi-title": "Ultra Low Interest",
+                "card-emi-desc": "Get solar loans with interest rates <strong class=\"text-brand-green\">less than 6%</strong> per annum.",
+                "card-emi-pt1": "No hidden charges",
+                "card-emi-pt2": "Flexible tenure (12-60 months)",
+                "card-loan-badge": "MOST POPULAR",
+                "card-loan-title": "Easy Green Loans",
+                "card-loan-desc": "Partnered with leading national banks for hassle-free solar loans with minimal documentation.",
+                "card-loan-btn": "Apply Now",
+                "card-roi-title": "ROI Calculator",
+                "card-roi-desc": "Recover your investment in just 3-4 years. Enjoy free electricity for the remaining 20+ years.",
+                "card-roi-pt1": "80% Reduction in bills",
+                "card-roi-pt2": "Net Metering support",
+
+                "contact-title": "Contact Us",
+                "contact-desc": "We are ready to assist you. Call or email us to get your free solar quotation today.",
+                "addr-title": "Head Office",
+                "addr-desc": "123, Green Energy Park,<br>Industrial Area, Ahmedabad,<br>Gujarat - 380001",
+                "phone-title": "Call Us",
+                "phone-time": "Mon-Sat: 9am - 7pm",
+                "phone-btn": "Click to Call",
+                "email-title": "Email Us",
+                "email-btn": "Send Email",
+                "whatsapp-btn": "Chat on WhatsApp",
+
+                "footer-about": "Leading the solar revolution in India. We provide turnkey solar solutions with premium components and lifelong support.",
+                "footer-quick": "Quick Links",
+                "footer-services": "Services",
+                "footer-connect": "Connect",
+                "footer-serv-1": "Residential Solar",
+                "footer-serv-2": "Commercial Industrial",
+                "footer-serv-3": "Solar Water Pumps",
+                "footer-approved": "Approved by MNRE (Govt of India)",
+                "footer-copy": "&copy; 2024 Vardhaman Solar Panel. All rights reserved.",
+                "footer-privacy": "Privacy Policy",
+                "footer-terms": "Terms of Service"
+            },
+            hi: {
+                "logo-title": "वर्धमान",
+                "logo-subtitle": "सौर ऊर्जा",
+                "nav-home": "होम",
+                "nav-pm": "पीएम सूर्य घर",
+                "nav-brands": "ब्रांड्स",
+                "nav-projects": "प्रोजेक्ट्स",
+                "nav-finance": "फाइनेंस",
+                "nav-contact": "संपर्क",
+
+                "hero-badge": "सरकार द्वारा अनुमोदित विक्रेता",
+                "hero-title": "स्वच्छ ऊर्जा के साथ <br> <span class=\"text-brand-green\">भारत का भविष्य</span>",
+                "hero-desc": "भारत सरकार से सीधे <span class=\"font-bold text-white\">₹78,000 तक की सब्सिडी</span> प्राप्त करें। आज ही अपनी ऊर्जा स्वतंत्रता सुरक्षित करें।",
+                "hero-btn-contact": "अभी संपर्क करें",
+                "hero-btn-subsidy": "सब्सिडी विवरण देखें",
+
+                "stat-projects": "परियोजनाएं पूर्ण",
+                "stat-power": "बिजली उत्पन्न",
+                "stat-govt": "सरकारी अनुपालन",
+                "stat-warranty": "वारंटी सहायता",
+
+                "pm-badge": "भारत सरकार की पहल",
+                "pm-title": "पीएम सूर्य घर: <br> <span class=\"text-orange-600\">मुफ्त बिजली योजना</span>",
+                "pm-sub-title-1": "प्रत्यक्ष सब्सिडी",
+                "pm-sub-desc-1": "सीधे अपने बैंक खाते में <span class=\"font-bold text-orange-700\">₹78,000</span> तक की सब्सिडी प्राप्त करें।",
+                "pm-sub-title-2": "मुफ्त बिजली",
+                "pm-sub-desc-2": "इस योजना का उद्देश्य हर महीने 300 यूनिट तक मुफ्त बिजली प्रदान करना है।",
+                "pm-btn-web": "आधिकारिक वेबसाइट देखें",
+                "pm-btn-apply": "वर्धमान के माध्यम से आवेदन करें",
+
+                "brands-title": "हमारे विश्वसनीय भागीदार",
+                "brands-desc": "हम अधिकतम दक्षता सुनिश्चित करने के लिए दुनिया के सबसे विश्वसनीय निर्माताओं से केवल शीर्ष-स्तरीय सौर मॉड्यूल का उपयोग करते हैं।",
+                "brand-adani-desc": "PVEL विश्वसनीयता स्कोरकार्ड में शीर्ष प्रदर्शन करने वाला। उच्च दक्षता मोनो-पर्क मॉड्यूल।",
+                "brand-tata-desc": "भारत का सबसे भरोसेमंद ब्रांड। भारतीय मौसम की स्थिति के लिए डिजाइन किए गए मजबूत पैनल।",
+                "brand-waaree-desc": "भारत का सबसे बड़ा सौर पैनल निर्माता। अत्याधुनिक बाइफेशियल तकनीक।",
+
+                "benefits-title": "वर्धमान सोलर ही क्यों चुनें?",
+                "benefit-1-title": "25 साल की वारंटी",
+                "benefit-1-desc": "सभी सौर पैनलों पर 25 साल की प्रदर्शन वारंटी के साथ मन की शांति।",
+                "benefit-2-title": "सरकार द्वारा अनुमोदित",
+                "benefit-2-desc": "हम पीएम सूर्य घर और राज्य सब्सिडी योजनाओं के लिए पंजीकृत विक्रेता हैं।",
+
+                "projects-badge": "हमारा पोर्टफोलियो",
+                "projects-title": "हालिया इंस्टॉलेशन",
+                "projects-desc": "छोटे घरों से लेकर बड़े औद्योगिक परिसरों तक, हमने उन सभी को रोशन किया है।",
+                "proj-1-title": "वडोदरा निवास",
+                "proj-1-desc": "5kW रूफटॉप सिस्टम",
+                "proj-2-title": "टेक्सटाइल मिल, सूरत",
+                "proj-2-desc": "100kW औद्योगिक संयंत्र",
+                "proj-3-title": "ग्रीन वैली अपार्टमेंट",
+                "proj-3-desc": "25kW कॉमन एरिया बैकअप",
+
+                "finance-badge": "वित्तीय स्वतंत्रता",
+                "finance-title": "सौर ऊर्जा हुई किफायती",
+                "finance-desc": "अग्रिम लागत को अपने ऊपर हावी न होने दें। हम आपकी आवश्यकताओं के अनुरूप लचीला वित्तपोषण प्रदान करते हैं।",
+                "card-emi-title": "अति कम ब्याज",
+                "card-emi-desc": "<strong class=\"text-brand-green\">6% से कम</strong> वार्षिक ब्याज दर पर सौर ऋण प्राप्त करें।",
+                "card-emi-pt1": "कोई गुप्त शुल्क नहीं",
+                "card-emi-pt2": "लचीली अवधि (12-60 महीने)",
+                "card-loan-badge": "सबसे लोकप्रिय",
+                "card-loan-title": "आसान ग्रीन लोन",
+                "card-loan-desc": "न्यूनतम दस्तावेजों के साथ परेशानी मुक्त सौर ऋण के लिए प्रमुख राष्ट्रीय बैंकों के साथ भागीदारी।",
+                "card-loan-btn": "अभी आवेदन करें",
+                "card-roi-title": "ROI कैलकुलेटर",
+                "card-roi-desc": "सिर्फ 3-4 वर्षों में अपना निवेश वापस पाएं। शेष 20+ वर्षों के लिए मुफ्त बिजली का आनंद लें।",
+                "card-roi-pt1": "बिलों में 80% की कमी",
+                "card-roi-pt2": "नेट मीटरिंग सहायता",
+
+                "contact-title": "संपर्क करें",
+                "contact-desc": "हम आपकी सहायता के लिए तैयार हैं। अपना मुफ्त सौर कोटेशन प्राप्त करने के लिए हमें कॉल या ईमेल करें।",
+                "addr-title": "मुख्य कार्यालय",
+                "addr-desc": "123, ग्रीन एनर्जी पार्क,<br>औद्योगिक क्षेत्र, अहमदाबाद,<br>गुजरात - 380001",
+                "phone-title": "हमें कॉल करें",
+                "phone-time": "सोम-शनि: सुबह 9 बजे - शाम 7 बजे",
+                "phone-btn": "कॉल करने के लिए क्लिक करें",
+                "email-title": "हमें ईमेल करें",
+                "email-btn": "ईमेल भेजें",
+                "whatsapp-btn": "व्हाट्सएप पर चैट करें",
+
+                "footer-about": "भारत में सौर क्रांति का नेतृत्व कर रहे हैं। हम प्रीमियम घटकों और आजीवन समर्थन के साथ टर्नकी सौर समाधान प्रदान करते हैं।",
+                "footer-quick": "त्वरित लिंक",
+                "footer-services": "सेवाएं",
+                "footer-connect": "जुड़ें",
+                "footer-serv-1": "आवासीय सौर",
+                "footer-serv-2": "वाणिज्यिक औद्योगिक",
+                "footer-serv-3": "सौर जल पंप",
+                "footer-approved": "MNRE (भारत सरकार) द्वारा अनुमोदित",
+                "footer-copy": "&copy; 2024 वर्धमान सोलर पैनल। सर्वाधिकार सुरक्षित।",
+                "footer-privacy": "गोपनीयता नीति",
+                "footer-terms": "सेवा की शर्तें"
+            }
+        };
+
+        // --- LANGUAGE SWITCHING LOGIC ---
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'hi' : 'en';
+            updateContent();
+            updateLangButton();
+        }
+
+        function updateLangButton() {
+            const deskBtn = document.getElementById('lang-text-desktop');
+            const mobileBtn = document.querySelector('.md\\:hidden button'); // Target the EN/Hindi button
+            
+            if (currentLang === 'en') {
+                deskBtn.textContent = 'हिंदी';
+                document.body.classList.remove('lang-hi');
+                document.body.classList.add('lang-en');
+            } else {
+                deskBtn.textContent = 'English';
+                document.body.classList.remove('lang-en');
+                document.body.classList.add('lang-hi');
+            }
+        }
+
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    // Use innerHTML to preserve span tags and formatting strings
+                    element.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        // --- MENU LOGIC ---
         // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -538,25 +772,6 @@
 
         document.querySelectorAll('.fade-in-up').forEach(el => {
             observer.observe(el);
-        });
-
-        // Form Submission Mock
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button');
-            const originalText = btn.innerText;
-            
-            btn.innerText = 'Sending...';
-            btn.disabled = true;
-            btn.classList.add('opacity-75');
-
-            setTimeout(() => {
-                alert('Thank you for choosing Vardhaman Solar System! Our team will contact you shortly.');
-                this.reset();
-                btn.innerText = originalText;
-                btn.disabled = false;
-                btn.classList.remove('opacity-75');
-            }, 1500);
         });
     </script>
 </body>
